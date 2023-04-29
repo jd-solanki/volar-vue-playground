@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
     "env.d.ts",
     "src/**/*",
@@ -22,6 +22,10 @@
         "./src/*"
       ]
     }
+  },
+  "vueCompilerOptions": {
+    "target": 3,
+    "strictTemplates": true,
   },
   "references": [
     {
