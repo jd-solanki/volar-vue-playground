@@ -1,7 +1,12 @@
-<script setup lang="ts">
-
+<script lang="ts" setup>
+import Bar from './bar/Bar.vue';
+const rows = [
+    { name: 'John', age: 18 }
+]
 </script>
 
 <template>
-  <p>Awesome</p>
+  <Bar :rows="rows" #header-name="{ col }">
+      props: {{ col.name }}
+  </Bar>
 </template>
