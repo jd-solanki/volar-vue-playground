@@ -16,7 +16,7 @@ export function aTableProps<const Row extends Record<string, unknown>>() {
       type: Array as PropType<ATablePropColumn<Row>[]>,
       default: () => [],
     },
-  }
+  } as const
 }
 
 export function aTableSlots<Row extends Record<string, unknown>>(colKeys: RowKey<Row>[]) {
