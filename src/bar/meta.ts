@@ -20,12 +20,12 @@ export function aTableProps<const Row extends Record<string, unknown>>() {
 }
 
 export function aTableSlots<Row extends Record<string, unknown>>(colKeys: RowKey<Row>[]) {
-    return ({
+  return ({
     // If I comment below line then error in SFC is gone 🤔
-    'before-table': (_: any) => null,
+    'before-table': (_: any) => null as any,
     
     ...colKeys.reduce((a, colKey) => (
       { ...a, [`header-${colKey}`]: Function }
-    ), {} as Record<`header-${RowKey<Row>}`, (_: { col: ATablePropColumn<Row> }) => any>),
+    ), {} as { [name in `header-${RowKey<Row>}`]: (_ :{ col: ATablePropColumn<Row> }) => any }),
   }) as const
 }
